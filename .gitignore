@@ -1,0 +1,86 @@
+# --------------------------------------
+# Java / Maven
+# --------------------------------------
+*.class
+*.log
+*.jar
+*.war
+*.ear
+hs_err_pid*
+target/
+build/
+
+# Don't ignore maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Occasionally generated folders inside src
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# --------------------------------------
+# IDEs & Editors
+# --------------------------------------
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# STS
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Eclipse
+*.launch
+*.prefs
+*.metadata
+*.recommenders
+/.settings/
+
+# --------------------------------------
+# OS & Tool Specific
+# --------------------------------------
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# --------------------------------------
+# Secrets / Credentials
+# --------------------------------------
+
+# Spring Boot properties and env files
+application.properties
+application.yml
+.env
+
+# Database dump or data folders
+*.sql
+*.sqlite
+*.db
+data/
