@@ -10,7 +10,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private static final String SECRET_KEY = "MySuperSecretKey1234567890123456"; // Use a secure key must be32 char
+    private static final String SECRET_KEY = System.getenv("JWT_SECRET_KEY"); // Retrieves from environment variable
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
 
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
