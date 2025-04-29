@@ -25,20 +25,21 @@ public class LunchDeal {
     private String phoneNumber;
     private LocalTime startTime;
     private LocalTime endTime;
-    private String status; // e.g., "ACTIVE", "SCHEDULED", "EXPIRED"
+    private String status; // "ACTIVE", "SCHEDULED", "EXPIRED"
 
     public void setStatus(String active) {
     }
 
-    public void setRestaurantId(Long restaurantId) {
+    public Long getRestaurantId() {
+        return restaurantId;
     }
 
-    public Object getRestaurantId() {
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public void setId(Long dealId) {
+        this.id = dealId;
     }
-
-    // Getters and setters
 }
 
