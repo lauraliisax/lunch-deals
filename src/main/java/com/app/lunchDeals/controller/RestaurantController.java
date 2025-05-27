@@ -1,26 +1,33 @@
 package com.app.lunchDeals.controller;
 
-import com.app.lunchDeals.entity.Restaurant;
-import com.app.lunchDeals.repository.RestaurantRepository;
+import com.app.lunchDeals.dto.RestaurantRegistrationRequest;
+import com.app.lunchDeals.entity.RegistrationRequest;
+import com.app.lunchDeals.repository.RegistrationReqRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/restaurants")
 public class RestaurantController {
 
-    private final RestaurantRepository restaurantRepository;
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private RegistrationReqRepository registrationReqRepository;
 
-    public RestaurantController(RestaurantRepository restaurantRepository, PasswordEncoder passwordEncoder) {
-        this.restaurantRepository = restaurantRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public String register(@RequestBody Restaurant restaurant) {
-        restaurant.setPassword(passwordEncoder.encode(restaurant.getPassword()));
-        restaurantRepository.save(restaurant);
-        return "Restaurant registered successfully";
+    public ResponseEntity<?> register(@RequestBody RegistrationRequest request) {
+        RegistrationRequest regRequest = new RegistrationRequest();
+        regRequest.setUsername(request.getUsername());
+        //hash password even before approval for security
+        regRequest.setPassword(passwordEncoder.encode(request.getPassword()));
+        regRequest.setRestaurantName(request.getRestaurantName());
+        regRequest.setCity(request.getCity());
+        regRequest.setStatus("PENDING");
+        registrationReqRepository.save(regRequest);
+        return ResponseEntity.ok("Registration request submitted for approval");
     }
 }

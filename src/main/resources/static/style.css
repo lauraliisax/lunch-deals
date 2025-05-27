@@ -1,0 +1,121 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background: #f6f5f2;
+  color: #333;
+}
+
+header {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d35400;
+}
+
+.login {
+  color: #d35400;
+  cursor: pointer;
+}
+
+.city-nav {
+  background: #e0d3c2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.city-nav button {
+  background: #8d7359;
+  color: white;
+  border: none;
+  margin: 0.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.city-nav button.active {
+  background: #d35400;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ebe5de;
+  font-size: 0.9rem;
+}
+
+.filter-bar input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.restaurant-list {
+  padding: 1rem 2rem;
+}
+
+.restaurant-card {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #d35400;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.restaurant-card img {
+  width: 120px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.restaurant-info {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.restaurant-info h3 {
+  margin: 0;
+  color: #d35400;
+}
+
+.district {
+  background: #ccc;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.meals {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.meals li {
+  margin-bottom: 0.3rem;
+}
+
+a {
+  color: #d35400;
+  text-decoration: none;
+  font-weight: bold;
+}

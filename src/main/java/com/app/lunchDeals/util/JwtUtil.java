@@ -1,3 +1,4 @@
+
 package com.app.lunchDeals.util;
 
 import io.jsonwebtoken.*;
@@ -10,14 +11,15 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private static final String SECRET_KEY = System.getenv("JWT_SECRET_KEY"); // Retrieves from environment variable
+    private static final String SECRET_KEY = System.getenv("JWT_SECRET_KEY");
     private static final long EXPIRATION_TIME = 86400000; // 1 day in milliseconds
 
     private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
 
-    public String generateToken(String username) {
+    public String generateToken(String username, String role) {
         return Jwts.builder()
                 .subject(username)
+                .claim("role", role)
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key, SignatureAlgorithm.HS256)
@@ -31,6 +33,15 @@ public class JwtUtil {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
+    }
+
+    public String extractRole(String token) {
+        return (String) Jwts.parser()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role");
     }
 
     public boolean validateToken(String token) {
